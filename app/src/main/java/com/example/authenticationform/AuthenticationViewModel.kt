@@ -19,10 +19,13 @@ class AuthenticationViewModel: ViewModel() {
     fun handleEvent(event: AuthenticationEvent) {
         when(event) {
             is AuthenticationEvent.Authenticate -> {
-
+                authenticate()
             }
             is AuthenticationEvent.EmailChanged -> {
                 updateEmail(event.email)
+            }
+            is AuthenticationEvent.ErrorDismissed -> {
+                dismissError()
             }
             is AuthenticationEvent.PasswordChanged -> {
                 updatePassword(event.password)
@@ -39,9 +42,16 @@ class AuthenticationViewModel: ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             delay(1000)
             withContext(Dispatchers.Main) {
-                uiState.value = uiState.value.copy(error = "Something went wrong")
+                uiState.value = uiState.value.copy(
+                    isLoading = false,
+                    error = "Something went wrong!"
+                )
             }
         }
+    }
+
+    private fun dismissError() {
+        uiState.value = uiState.value.copy(error = null)
     }
 
     private fun updateEmail(email: String) {
