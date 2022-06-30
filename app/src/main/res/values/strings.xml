@@ -3,4 +3,6 @@
     <string name="password_requirement_characters">At least 8 characters</string>
     <string name="password_requirement_capital">At least 1 upper-case letter</string>
     <string name="password_requirement_digit">At least 1 digit</string>
+    <string name="title_sign_in">Sign In to your account</string>
+    <string name="title_sign_up">Sign Up for an account</string>
 </resources>

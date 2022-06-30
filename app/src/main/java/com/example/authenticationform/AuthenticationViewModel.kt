@@ -13,8 +13,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class AuthenticationViewModel: ViewModel() {
-
-    private val uiState = MutableStateFlow(AuthenticationState())
+    val uiState = MutableStateFlow(AuthenticationState())
 
     fun handleEvent(event: AuthenticationEvent) {
         when(event) {
