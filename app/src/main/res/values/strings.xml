@@ -5,4 +5,6 @@
     <string name="password_requirement_digit">At least 1 digit</string>
     <string name="title_sign_in">Sign In to your account</string>
     <string name="title_sign_up">Sign Up for an account</string>
+    <string name="label_email">Email Address</string>
+    <string name="label_password">Password</string>
 </resources>

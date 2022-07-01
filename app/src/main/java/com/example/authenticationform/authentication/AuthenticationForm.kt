@@ -1,17 +1,21 @@
 package com.example.authenticationform.authentication
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AuthenticationForm(
     modifier: Modifier = Modifier,
-    authenticationMode: AuthenticationMode
+    authenticationMode: AuthenticationMode,
+    email: String?,
+    onEmailChanged: (String) -> Unit
 ) {
     Column(
         modifier = modifier,
@@ -19,5 +23,22 @@ fun AuthenticationForm(
     ) {
         Spacer(modifier = Modifier.height(32.dp))
         AuthenticationTitle(authenticationMode = authenticationMode)
+        Spacer(modifier = Modifier.height(40.dp))
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        ) {
+            Column(
+                modifier = Modifier.padding(all = 16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                EmailInput(
+                    email = email,
+                    onEmailChanged = onEmailChanged
+                )
+            }
+        }
     }
 }
