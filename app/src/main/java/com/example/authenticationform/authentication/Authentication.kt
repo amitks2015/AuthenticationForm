@@ -41,8 +41,15 @@ fun AuthenticationContent(
                 modifier = Modifier.fillMaxSize(),
                 authenticationMode =authenticationState.authenticationMode,
                 email = authenticationState.email,
+                password = authenticationState.password,
                 onEmailChanged = { email ->
                     handleEvent(AuthenticationEvent.EmailChanged(email))
+                },
+                onPasswordChanged = { password ->
+                    handleEvent(AuthenticationEvent.PasswordChanged(password))
+                },
+                onAuthenticate = {
+                    handleEvent(AuthenticationEvent.Authenticate)
                 }
             )
         }

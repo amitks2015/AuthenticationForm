@@ -15,7 +15,10 @@ fun AuthenticationForm(
     modifier: Modifier = Modifier,
     authenticationMode: AuthenticationMode,
     email: String?,
-    onEmailChanged: (String) -> Unit
+    password: String?,
+    onEmailChanged: (String) -> Unit,
+    onPasswordChanged: (String) -> Unit,
+    onAuthenticate: () -> Unit,
 ) {
     Column(
         modifier = modifier,
@@ -37,6 +40,12 @@ fun AuthenticationForm(
                 EmailInput(
                     email = email,
                     onEmailChanged = onEmailChanged
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                PasswordInput(
+                    password = password,
+                    onPasswordChanged = onPasswordChanged,
+                    onDoneClicked = onAuthenticate
                 )
             }
         }
