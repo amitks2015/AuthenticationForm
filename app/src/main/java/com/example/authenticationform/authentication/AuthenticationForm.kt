@@ -1,5 +1,6 @@
 package com.example.authenticationform.authentication
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -16,6 +17,7 @@ fun AuthenticationForm(
     authenticationMode: AuthenticationMode,
     email: String?,
     password: String?,
+    satisfiedRequirements: List<PasswordRequirements>,
     onEmailChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
     onAuthenticate: () -> Unit,
@@ -47,6 +49,14 @@ fun AuthenticationForm(
                     onPasswordChanged = onPasswordChanged,
                     onDoneClicked = onAuthenticate
                 )
+                Spacer(modifier = Modifier.height(16.dp))
+                AnimatedVisibility(
+                    visible = authenticationMode == AuthenticationMode.SIGN_UP
+                ) {
+                    PasswordRequirements(
+                        satisfiedRequirements = satisfiedRequirements
+                    )
+                }
             }
         }
     }
