@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 import com.example.authenticationform.R
 
 data class AuthenticationState(
-    val authenticationMode: AuthenticationMode = AuthenticationMode.SIGN_UP,
+    val authenticationMode: AuthenticationMode = AuthenticationMode.SIGN_IN,
     val email: String? = null,
     val password: String? = null,
     val passwordRequirements: List<PasswordRequirements> = emptyList(),

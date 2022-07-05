@@ -17,6 +17,7 @@ fun AuthenticationForm(
     authenticationMode: AuthenticationMode,
     email: String?,
     password: String?,
+    enableAuthentication: Boolean,
     satisfiedRequirements: List<PasswordRequirements>,
     onEmailChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
@@ -57,6 +58,12 @@ fun AuthenticationForm(
                         satisfiedRequirements = satisfiedRequirements
                     )
                 }
+                Spacer(modifier = Modifier.height(16.dp))
+                AuthenticationButton(
+                    authenticationMode = authenticationMode,
+                    enableAuthentication = enableAuthentication,
+                    onAuthenticate = onAuthenticate
+                )
             }
         }
     }
