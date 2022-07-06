@@ -31,7 +31,7 @@ fun AuthenticationContent(
     handleEvent: (AuthenticationEvent) -> Unit
 ) {
     Box(
-        modifier = modifier,
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         if(authenticationState.isLoading) {
@@ -52,8 +52,19 @@ fun AuthenticationContent(
                 },
                 onAuthenticate = {
                     handleEvent(AuthenticationEvent.Authenticate)
+                },
+                onToggleAuthenticationMode = {
+                    handleEvent(AuthenticationEvent.ToggleAuthenticationMode)
                 }
             )
+            authenticationState.error?.let {
+                AuthenticationErrorDialog(
+                    error = it,
+                    onDismissError = {
+                        handleEvent(AuthenticationEvent.ErrorDismissed)
+                    }
+                )
+            }
         }
     }
 }
