@@ -11,6 +11,8 @@
     <string name="label_sign_up">Sign Up</string>
     <string name="action_need_account">Need an account?</string>
     <string name="action_already_have_account">Already have an account?</string>
+    <string name="error_title">Uh Oh!</string>
+    <string name="ok">Ok</string>
 
     <string name="cd_show_password">Show password</string>
     <string name="cd_hide_password">Hide password</string>

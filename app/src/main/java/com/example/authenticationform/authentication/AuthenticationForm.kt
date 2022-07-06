@@ -22,6 +22,7 @@ fun AuthenticationForm(
     onEmailChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
     onAuthenticate: () -> Unit,
+    onToggleAuthenticationMode: () -> Unit,
 ) {
     Column(
         modifier = modifier,
@@ -66,5 +67,11 @@ fun AuthenticationForm(
                 )
             }
         }
+        Spacer(modifier = Modifier.weight(1f))
+        ToggleAuthenticationMode(
+            modifier = Modifier.fillMaxWidth(),
+            authenticationMode = authenticationMode,
+            onToggleAuthenticationMode = onToggleAuthenticationMode
+        )
     }
 }
